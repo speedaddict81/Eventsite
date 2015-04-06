@@ -3,18 +3,15 @@ Created For the Eventbrite Internship Interview process
 This app was built using Django 1.7 and Python 2.7.9
 With Django's Default SqlLite DB settings
 
-1. Extract the contents to the directory containing your manage.py
+1. Building from GitHub:
+    Clone to local machine where django will work
+   Building from zip:
+    Extract the contents to a path suitable for Python/Django
 
-2. Add to urlpatterns in project's urls.py: 
-      url(r'^events/', include('events.urls', namespace="events"))
-    
-3. Add to INSTALLED_APPS in settings.py: 
-      'events'
-      
-4. Migrate (python manage.py migrate)
+2. From location with manage.py Run: python manage.py migrate
 
-5. Start server (python manage.py runserver)
+3. From same location run: python manage.py runserver
 
-6. Go to 127.0.0.1:8000/events/
+4. Go to 127.0.0.1:8000/events/
 
-7. Find something to do near you!
+5. Find something to do near you!
