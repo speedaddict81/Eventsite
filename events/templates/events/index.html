@@ -1,0 +1,75 @@
+{% if category_list %}
+    <!DOCTYPE html>
+    <head>
+    <style>
+        body {
+            font-family:Verdana, Geneva, sans-serif;
+        }
+        .main {
+            box-shadow:rgba(0,0,0,0.5) 0px 0px 24px;
+            border-radius:12px;
+            padding:15px;
+        }
+        .sb {
+            border-style:none;
+            border-radius:4px;
+            background:radial-gradient(white, lightgray);
+            padding:4px 10px;
+        }
+    </style>
+    <head>
+    <h2>Find Events</h2>
+    <form class="main" name="search" action="{% url 'events:search' %}" method="get">
+    {% csrf_token %}
+    Enter location and select up to three categories
+    <p>Address:<input type="text" name="address" required style="width:30%"> Distance:<select name="within">
+        <option value="25mi" selected>25 Miles</option>
+        <option value="50mi">50 Miles</option>
+        <option value="100mi">100 Miles</option>
+      </select>
+    <table>    
+      <tr>
+    {% for category in category_list %}
+      <td><input type="checkbox" name="cat" value="{{ category.cat_id}}" onClick="return KeepCount()"/>{{ category.short_name }}</td>
+      {% if forloop.counter == 5 or forloop.counter == 10 or forloop.counter == 15 or forloop.counter == 20%}
+        </tr><tr>
+      {% endif %}
+    {% endfor %}
+    </table>
+    <input class="sb" type="submit" onClick="return made_selection()" value="Search" />
+    </form>
+    
+    <script>
+    function made_selection(){
+    var elements = document.getElementsByName("cat")
+    for (var i = 0; i<elements.length; i++)
+    {
+          if(elements[i].checked)
+          {return true;}
+    }
+    alert('Please select at least one category')
+    document.search;
+    return false;
+    }    
+    
+    function KeepCount(){
+    
+    var NewCount = 0
+    var elements = document.getElementsByName("cat")
+    for (var i = 0; i<elements.length; i++)
+    {
+          if(elements[i].checked)
+          {NewCount += 1;}
+          }
+    if (NewCount == 4)
+    {
+    alert('Select up to three')
+    document.search; return false;
+    }
+    }
+    </script>
+    
+{% else %}
+    <!-- Do the other thing if the list is not already created -->
+    <Head><meta HTTP-EQUIV="REFRESH" content="0; {% url 'events:cats'  %}"></Head>
+{% endif %}

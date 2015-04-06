@@ -1,0 +1,38 @@
+body {
+    font-family:Verdana, Geneva, sans-serif;
+}
+a {
+     text-decoration: none;
+}
+ul {
+    list-style-type:none;
+}
+.paginationTop li, .paginationBottom li {
+    display:inline-block;
+    padding:5px;
+    background: radial-gradient(white, lightGray);
+    border-radius:4px;
+    margin-right:4px;
+    
+}
+.list li {
+    height:100px;
+    box-shadow:rgba(0,0,0,0.5) 0px 0px 24px;
+    border-radius:12px;
+    padding-left:15px;
+}
+.logo {
+    float:left;
+    width:100px;
+    height:100px;
+    margin-right:10px;
+}
+.sort, .research {
+    border-radius:4px;
+    background: radial-gradient(white, lightgray);
+    border-style:none;
+    color:Blue;
+    cursor:pointer;
+    padding:4px;
+    font-weight:600;
+}
