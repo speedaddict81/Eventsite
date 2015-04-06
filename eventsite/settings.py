@@ -49,9 +49,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'mysecond.urls'
+ROOT_URLCONF = 'eventsite.urls'
 
-WSGI_APPLICATION = 'mysecond.wsgi.application'
+WSGI_APPLICATION = 'eventsite.wsgi.application'
 
 
 # Database
