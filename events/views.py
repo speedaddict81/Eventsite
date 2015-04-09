@@ -61,7 +61,7 @@ def search(request):
         for item in decoded['events']:
             key_str = str(item['id'])
             res_dat[key_str] = {'url':item['url'],
-                                    'logo_url':item['logo_url'],
+                                    'logo_url':item['logo']['url'],
                                     'start_date':item['start']['local'],
                                     'event_name':item['name']['text'],
                                     'city':item['venue']['address']['city'],
