@@ -60,8 +60,12 @@ def search(request):
         decoded = json.loads(urlopen(search_str+"&page="+str(pageno)).read())
         for item in decoded['events']:
             key_str = str(item['id'])
+            if (item['logo']):
+                logolocal = item['logo']['url']
+            else:
+                logolocal = "None"            
             res_dat[key_str] = {'url':item['url'],
-                                    #'logo_url':item['logo']['url'],
+                                    'logo_url':logolocal,
                                     'start_date':item['start']['local'],
                                     'event_name':item['name']['text'],
                                     'city':item['venue']['address']['city'],
@@ -115,7 +119,7 @@ def search(request):
     else:
         #construct output for each event
         for event in result_data.itervalues():
-            lurl = "none"#str(event['logo_url'])
+            lurl = str(event['logo_url'])
             url = str(event['url'])
             city = str(event['city'])
             region = str(event['region'])
